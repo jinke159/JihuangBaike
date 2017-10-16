@@ -12,6 +12,10 @@ import android.view.View;
 
 import com.mystrawberry.baikedonotstarve.databinding.ActivityMainBinding;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
@@ -46,7 +50,10 @@ public class MainActivity extends AppCompatActivity {
         mActionBarDrawerToggle.syncState();
         mDataBinding.rvMain.setHasFixedSize(true);
         mDataBinding.setLayoutManager(new LinearLayoutManager(this));
-        mDataBinding.setMyAdapter(new MyAdapter());
+        String[] stringArray = getResources().getStringArray(R.array.main_menu_name);
+        List<String> stringList = new ArrayList<String>(Arrays.asList(stringArray));
+
+        mDataBinding.setMyAdapter(new MyAdapter(stringList));
 
 
     }

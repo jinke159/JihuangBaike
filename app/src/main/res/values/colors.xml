@@ -4,18 +4,21 @@
     <!--<color name="colorPrimaryDark">#303F9F</color>-->
 
 
-    <color name="colorPrimary">#455a64</color>
+    <color name="colorPrimary">#233238</color>
     <color name="colorPrimaryDark">#263238</color>
     <color name="colorAccent">#448AFF</color>
 
 
-    <color name="primary_light">#E0E0E0</color>
+    <color name="primary_light">#131A1D</color>
     <color name="primary_text">#212121</color>
     <color name="secondary_text">#757575</color>
-    <color name="icons">#FFFFFF</color>
+    <color name="icons">#e7ffffff</color>
     <color name="divider">#BDBDBD</color>
 
 
-    <color name="selector_state_pressed">#BDBDBD</color>
-    <color name="white">#FFFFFF</color>
+    <color name="selector_state_pressed">#3E4C53</color>
+    <color name="white">#ffffff</color>
+    <color name="background_material_dark">#00303030</color>
+    <color name="primary_material_dark">#263238</color>
+    <color name="primary_dark_material_dark">#161e21</color>
 </resources>

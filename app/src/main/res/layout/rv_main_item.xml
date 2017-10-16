@@ -3,41 +3,46 @@
 
     <data>
 
+        <import type="com.mystrawberry.baikedonotstarve.bing.AttrAdapter"/>
+
         <variable
             name="drawableId"
             type="int"/>
 
         <variable
-            name="mainName"
+            name="name"
             type="String"/>
+
     </data>
-<LinearLayout
-    android:clickable="true"
-    android:background="@drawable/rv_main_item_selector"
-    android:gravity="center_vertical|left"
-    android:orientation="horizontal"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <ImageView
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="4dp"
-        android:layout_marginLeft="16dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@{drawableId}"
-        android:background="@android:color/transparent"/>
-    <TextView
-        android:id="@+id/tv_item_main"
-        android:layout_marginLeft="12dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@{mainName}"
-        android:textColor="#aa000000"
-        android:textSize="16sp"
-        android:background="@android:color/transparent"/>
 
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rv_main_item_selector"
+        android:clickable="true"
+        android:gravity="center_vertical|start"
+        android:orientation="horizontal">
 
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginBottom="4dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="4dp"
+            android:background="@android:color/transparent"
+            android:src="@{AttrAdapter.getDrawable(context,drawableId,@colorStateList/rv_main_item_text_selector)}"/>
+
+        <TextView
+            android:id="@+id/tv_item_main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:background="@android:color/transparent"
+            android:text="@{name}"
+            android:textColor="@color/rv_main_item_text_selector"
+            android:textSize="16sp"/>
+
+    </LinearLayout>
 
 
 </layout>
