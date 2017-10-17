@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-//    /* 如果我们调用invalidateOptionsMenu() 系统会调用onPrepareOptionsMenu*/
+    //    /* 如果我们调用invalidateOptionsMenu() 系统会调用onPrepareOptionsMenu*/
 //    @Override
 //    public boolean onPrepareOptionsMenu(Menu menu) {
 //        // 如果菜单栏已打开，请隐藏与内容视图相关的操作项比如搜索按钮

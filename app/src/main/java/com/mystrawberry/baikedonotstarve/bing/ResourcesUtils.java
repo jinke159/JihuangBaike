@@ -5,15 +5,19 @@ import android.content.res.ColorStateList;
 import android.databinding.BindingAdapter;
 import android.graphics.drawable.Drawable;
 import android.support.v4.graphics.drawable.DrawableCompat;
+import android.util.Log;
 import android.widget.ImageView;
 
 import com.mystrawberry.baikedonotstarve.R;
 
+import java.lang.reflect.Field;
+
 /**
+ * 资源工具类
  * Created by jk on 2017/10/12.
  */
 
-public class DrawableUtils {
+public class ResourcesUtils {
 
     @BindingAdapter("android:src")
     public void setSrc(ImageView view, int resId, int i) {
@@ -96,7 +100,7 @@ public class DrawableUtils {
      * @param drawableId 图像ID
      * @return Drawable
      */
-    private static Drawable getDrawable(Context context, int drawableId) {
+    public static Drawable getDrawable(Context context, int drawableId) {
         return context.getResources().getDrawable(drawableId);
     }
 
@@ -106,8 +110,30 @@ public class DrawableUtils {
      *
      * @return 颜色状态选择器
      */
-    private static ColorStateList getColorStateList(Context context, int colorId) {
+    public static ColorStateList getColorStateList(Context context, int colorId) {
         return context.getResources().getColorStateList(colorId);
     }
 
+    /**
+     * 通过名字获取 drawable的Id,比系统的方法略快一丢丢
+     * @param drawableName 获取drawableId的名字
+     * @return R.drawable.drawableName
+     */
+    public static int getDrawableId(String drawableName) {
+
+            try {
+
+                Class res = R.drawable.class;
+                Field field = res.getField(drawableName);
+
+                return field.getInt(null);
+//                int drawableId = field.getInt(null);
+//              return drawableId;
+            } catch (Exception e) {
+                Log.e("MyTag", "Failure to get drawable id.", e);
+                return 0;
+            }
+
+
+    }
 }

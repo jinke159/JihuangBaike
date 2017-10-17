@@ -3,7 +3,7 @@
 
     <data>
 
-        <import type="com.mystrawberry.baikedonotstarve.bing.DrawableUtils"/>
+        <import type="com.mystrawberry.baikedonotstarve.bing.ResourcesUtils"/>
         <import type="android.graphics.drawable.Drawable"/>
         <variable
             name="drawable"
@@ -30,7 +30,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginTop="4dp"
             android:background="@android:color/transparent"
-            android:src="@{DrawableUtils.tintDrawable(drawable,@colorStateList/rv_main_item_text_selector)}"/>
+            android:src="@{ResourcesUtils.tintDrawable(drawable,@colorStateList/rv_main_item_text_selector)}"/>
 
         <TextView
             android:id="@+id/tv_item_main"
