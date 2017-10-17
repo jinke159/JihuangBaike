@@ -1,5 +1,7 @@
 package com.mystrawberry.baikedonotstarve;
 
+import android.content.res.Resources;
+import android.content.res.TypedArray;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.os.PersistableBundle;
@@ -10,10 +12,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.mystrawberry.baikedonotstarve.databinding.ActivityMainBinding;
+import com.mystrawberry.baikedonotstarve.info.TextAndDrawable;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -49,11 +52,39 @@ public class MainActivity extends AppCompatActivity {
         mDataBinding.drawerLayout.addDrawerListener(mActionBarDrawerToggle);
         mActionBarDrawerToggle.syncState();
         mDataBinding.rvMain.setHasFixedSize(true);
-        mDataBinding.setLayoutManager(new LinearLayoutManager(this));
-        String[] stringArray = getResources().getStringArray(R.array.main_menu_name);
-        List<String> stringList = new ArrayList<String>(Arrays.asList(stringArray));
 
-        mDataBinding.setMyAdapter(new MyAdapter(stringList));
+        //准备数据
+        mDataBinding.setLayoutManager(new LinearLayoutManager(this));
+        final Resources resources = getResources();
+        String[] stringArray = resources.getStringArray(R.array.main_menu_name);
+        TypedArray drawabless = resources.obtainTypedArray(R.array.main_menu_pic);
+        int length = stringArray.length;
+        List<TextAndDrawable> stringList = new ArrayList<>(length);
+        TextAndDrawable textAndDrawable;
+        for (int i = 0; i < length; i++) {
+            textAndDrawable = new TextAndDrawable(stringArray[i], drawabless.getDrawable(i));
+            stringList.add(textAndDrawable);
+        }
+        drawabless.recycle();
+        final MyAdapter myAdapter = new MyAdapter(stringList);
+        myAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                //当条目被点击更改条目的焦点
+                myAdapter.notifyItemChanged(myAdapter.getSelectedPos());
+                /*xml图片文件搭配DrawableCompat设置颜色会出小bug
+                 * 大概是xml文件的问题(加载有延迟???),必须用notifyDataSetChanged刷新才行
+                  * 不能用notifyItemChanged 会造成图片选取状态错乱*/
+                myAdapter.notifyDataSetChanged();
+
+                mDataBinding.drawerLayout.closeDrawer(GravityCompat.START);
+
+            }
+        });
+        mDataBinding.setMyAdapter(myAdapter);
+
+
+
 
 
     }
@@ -66,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    //    /* 如果我们调用invalidateOptionsMenu() 系统会调用onPrepareOptionsMenu*/
+//    /* 如果我们调用invalidateOptionsMenu() 系统会调用onPrepareOptionsMenu*/
 //    @Override
 //    public boolean onPrepareOptionsMenu(Menu menu) {
 //        // 如果菜单栏已打开，请隐藏与内容视图相关的操作项比如搜索按钮
@@ -83,6 +114,5 @@ public class MainActivity extends AppCompatActivity {
             super.onBackPressed();
         }
     }
-
 
 }

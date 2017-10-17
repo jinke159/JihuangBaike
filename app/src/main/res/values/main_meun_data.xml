@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="main_menu">5</integer>
+    <string-array name="main_menu_name" >
+
+        <item>人物</item>
+        <item>食物</item>
+        <item>科技</item>
+        <item>生物</item>
+        <item>自然</item>
+        <item>物品</item>
+    </string-array>
+    <array name="main_menu_pic">
+        <item>@drawable/ic_face_black_24dp</item>
+        <item>@drawable/ic_cake_black_24dp</item>
+        <item>@drawable/ic_school_black_24dp</item>
+        <item>@drawable/ic_pets_black_24dp</item>
+        <item>@drawable/ic_ac_unit_black_24dp</item>
+        <item>@drawable/ic_all_inclusive_black_24dp</item>
+
+    </array>
+
+</resources>
