@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                 //当条目被点击更改条目的焦点
-                myAdapter.notifyItemChanged(myAdapter.getSelectedPos());
+                myAdapter.setSelectedPos(position);
                 /*xml图片文件搭配DrawableCompat设置颜色会出小bug
                  * 大概是xml文件的问题(加载有延迟???),必须用notifyDataSetChanged刷新才行
                   * 不能用notifyItemChanged 会造成图片选取状态错乱*/
