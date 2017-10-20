@@ -14,7 +14,7 @@
       "health": 150,
       "hunger": 150,
       "sanity": 200,
-      "damage": "X1",
+      "damage": "x1",
       "introduce": "介绍",
       "isSummoner": false
     },
@@ -34,7 +34,7 @@
       "health": 150,
       "hunger": 150,
       "sanity": 120,
-      "damage": "X1",
+      "damage": "x1",
       "introduce": "介绍",
       "isSummoner": false
     },
@@ -54,7 +54,7 @@
       "maxHealth": 300,
       "hunger": 300,
       "sanity": 200,
-      "damage": "X0.5~2.0",
+      "damage": "x0.5~2.0",
       "introduce": "介绍",
       "isSummoner": false
     },
@@ -83,7 +83,7 @@
       "name": "WX-78",
       "Nickname": "没有灵魂的机器",
       "enName": "WX-78",
-      "motto": "情感模块未响应",
+      "motto": "「情感模块未响应」",
       "Lines": "LIFE IS INEFFICIENT.\n任何生命都是低效率的。",
       "ability": [
         "不挑食",
@@ -97,7 +97,7 @@
       "maxHunger": 400,
       "sanity": 100,
       "maxSanity":300,
-      "damage": "X0.75",
+      "damage": "x1",
       "introduce": "介绍",
       "isSummoner": false
     },
@@ -117,7 +117,7 @@
       "health": 150,
       "hunger": 150,
       "sanity": 250,
-      "damage": "X1",
+      "damage": "x1",
       "introduce": "介绍",
       "isSummoner": false
     },
@@ -136,7 +136,7 @@
       "health": 150,
       "hunger": 150,
       "sanity": 200,
-      "damage": "X1",
+      "damage": "x1",
       "introduce": "介绍",
       "isSummoner": false
     },
@@ -156,7 +156,7 @@
       "health": 113,
       "hunger": 113,
       "sanity": 150,
-      "damage": "X0.75",
+      "damage": "x0.75",
       "introduce": "介绍",
       "isSummoner": false
     },
@@ -176,7 +176,7 @@
       "health": 75,
       "hunger": 150,
       "sanity": 200,
-      "damage": "X1",
+      "damage": "x1",
       "introduce": "介绍",
       "isSummoner": false
     },
