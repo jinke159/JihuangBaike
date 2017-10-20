@@ -1,0 +1,224 @@
+{
+  "mCharacter": [
+    {
+      "picture": "wilson",
+      "name": "威尔逊",
+      "Nickname": "绅士科学家",
+      "enName": "Wilson",
+      "motto": "「我会用思考的力量战胜一切!」",
+      "Lines": "\"Do you like science?\n你喜欢科学吗？\"",
+      "ability": [
+        "长出一大把胡须"
+      ],
+      "isDynamic": false,
+      "health": 150,
+      "hunger": 150,
+      "sanity": 200,
+      "damage": "X1",
+      "introduce": "介绍",
+      "isSummoner": false
+    },
+    {
+      "picture": "willow",
+      "name": "薇洛",
+      "Nickname": "纵火者",
+      "enName": "Willow",
+      "motto": "「萬物在燃燒時總會更美麗。」",
+      "Lines": "\"Hmmm. I wonder if these will burn.\n嗯、我在想这些东西能烧吗？\"",
+      "ability": [
+        "免疫火焰伤害",
+        "拥有一个很棒的打火机",
+        "紧张时会纵火"
+      ],
+      "isDynamic": false,
+      "health": 150,
+      "hunger": 150,
+      "sanity": 120,
+      "damage": "X1",
+      "introduce": "介绍",
+      "isSummoner": false
+    },
+    {
+      "picture": "wolfgang",
+      "name": "沃尔夫冈",
+      "Nickname": "大力士",
+      "enName": "Wolfgang",
+      "motto": "「没人比我更强壮！」",
+      "Lines": "Mind says no. Muscles say yes!\n脑海里说不，肌肉却很诚实。",
+      "ability": [
+        "吃饱了更强大",
+        "怕黑和怪物"
+      ],
+      "isDynamic": true,
+      "health": 150,
+      "maxHealth": 300,
+      "hunger": 300,
+      "sanity": 200,
+      "damage": "X0.5~2.0",
+      "introduce": "介绍",
+      "isSummoner": false
+    },
+    {
+      "picture": "wendy",
+      "name": "温蒂",
+      "Nickname": "遗忘者",
+      "enName": "Wendy",
+      "motto": "「阿比盖尔！回来！我还想和你玩呢！」",
+      "Lines": "Not all deaths are the same.\n每個死亡都是與眾不同的。",
+      "ability": [
+        "有一个幽灵妹妹",
+        "在黑暗中感觉很舒适",
+        "力气较小不是很能打"
+      ],
+      "isDynamic": false,
+      "health": 150,
+      "hunger": 150,
+      "sanity": 200,
+      "damage": "x0.75",
+      "introduce": "介绍",
+      "isSummoner": true
+    },
+    {
+      "picture": "wx_78",
+      "name": "WX-78",
+      "Nickname": "没有灵魂的机器",
+      "enName": "WX-78",
+      "motto": "情感模块未响应",
+      "Lines": "LIFE IS INEFFICIENT.\n任何生命都是低效率的。",
+      "ability": [
+        "不挑食",
+        "会遭雷劈，水也会破坏它的身体",
+        "可以通过齿轮升级"
+      ],
+      "isDynamic": true,
+      "health": 100,
+      "maxHealth": 200,
+      "hunger": 100,
+      "maxHunger": 400,
+      "sanity": 100,
+      "maxSanity":300,
+      "damage": "X0.75",
+      "introduce": "介绍",
+      "isSummoner": false
+    },
+    {
+      "picture": "wickerbottom",
+      "name": "薇克伯顿",
+      "Nickname": "图书馆管理员",
+      "enName": "Wickerbottom",
+      "motto": "「嘘，别说话！」",
+      "Lines": "Knowledge is power!\n知识就是力量！",
+      "ability": [
+        "知道很多事情",
+        "出版过书籍",
+        "失眠，讨厌过期食物"
+      ],
+      "isDynamic": false,
+      "health": 150,
+      "hunger": 150,
+      "sanity": 250,
+      "damage": "X1",
+      "introduce": "介绍",
+      "isSummoner": false
+    },
+    {
+      "picture": "woodie",
+      "name": "伍迪",
+      "Nickname": "樵夫",
+      "enName": "Woodie",
+      "motto": "「这树不错，是吧？」",
+      "Lines": "Lucy would want me to chop it down.\n露西希望我把它砍下來。",
+      "ability": [
+        "有一个不错的斧头\n和一个糟糕的秘密",
+        "对丰收充满感激"
+      ],
+      "isDynamic": false,
+      "health": 150,
+      "hunger": 150,
+      "sanity": 200,
+      "damage": "X1",
+      "introduce": "介绍",
+      "isSummoner": false
+    },
+    {
+      "picture": "wes",
+      "name": "维斯",
+      "Nickname": "沉默者",
+      "enName": "Wes",
+      "motto": "「...」",
+      "Lines": "「...」",
+      "ability": [
+        "无法说话",
+        "很难活下去",
+        "制作气球的高手"
+      ],
+      "isDynamic": false,
+      "health": 113,
+      "hunger": 113,
+      "sanity": 150,
+      "damage": "X0.75",
+      "introduce": "介绍",
+      "isSummoner": false
+    },
+    {
+      "picture": "maxwell",
+      "name": "麦克威尔",
+      "Nickname": "控偶大师",
+      "enName": "Maxwell",
+      "motto": "「自由了！」",
+      "Lines": "Freedom, at last!\n终于自由了！",
+      "ability": [
+        "衣冠楚楚但身体很弱",
+        "善于一心多用",
+        "与黑夜同名的男人"
+      ],
+      "isDynamic": false,
+      "health": 75,
+      "hunger": 150,
+      "sanity": 200,
+      "damage": "X1",
+      "introduce": "介绍",
+      "isSummoner": false
+    },
+    {
+      "picture": "wigfrid",
+      "name": "薇格弗德",
+      "Nickname": "表演艺术家",
+      "enName": "Wigfrid",
+      "motto": "「这是对我演技的考验！」",
+      "Lines": "Valhalla awaits!瓦尔哈拉，在！此！等！待！",
+      "ability": [
+        "擅长战斗",
+        "能从倒下的敌人身上获取力量",
+        "只吃肉"
+      ],
+      "isDynamic": false,
+      "health": 200,
+      "hunger": 120,
+      "sanity": 120,
+      "damage": "x1.25",
+      "introduce": "介绍",
+      "isSummoner": false
+    },
+    {
+      "picture": "webber",
+      "name": "韦伯",
+      "Nickname": "蜘蛛人",
+      "enName": "Webber",
+      "motto": "「我们可以克服一切！」",
+      "Lines": "Spiders understand us.\n蜘蛛了解我們",
+      "ability": [
+        "是一个怪物",
+        "跟蜘蛛交好",
+        "会长出光滑的胡须"
+      ],
+      "isDynamic": false,
+      "health": 175,
+      "hunger": 175,
+      "sanity": 100,
+      "damage": "x1",
+      "introduce": "介绍",
+      "isSummoner": false
+    }
+  ]
+}

@@ -2,8 +2,10 @@ package com.mystrawberry.baikedonotstarve.bing;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
+import android.content.res.Resources;
 import android.databinding.BindingAdapter;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.util.Log;
 import android.widget.ImageView;
@@ -17,10 +19,11 @@ import java.lang.reflect.Field;
  * Created by jk on 2017/10/12.
  */
 
+@SuppressWarnings("WeakerAccess")
 public class ResourcesUtils {
 
     @BindingAdapter("android:src")
-    public void setSrc(ImageView view, int resId, int i) {
+    public static void setSrc(ImageView view, int resId) {
 
         view.setImageResource(resId);
     }
@@ -36,7 +39,6 @@ public class ResourcesUtils {
     }
 
     /**
-     *
      * @param drawableId 需要添加状态的图像id
      * @return 带默认颜色状态选择器的图像
      */
@@ -47,7 +49,6 @@ public class ResourcesUtils {
     }
 
     /**
-     *
      * @param drawable 需要添加状态的图像对象
      * @return 带默认颜色状态选择器的图像
      */
@@ -56,8 +57,7 @@ public class ResourcesUtils {
     }
 
     /**
-     *
-     * @param drawable 需要添加状态的图像对象
+     * @param drawable         需要添加状态的图像对象
      * @param ColorStateListId 需要添加的颜色状态选择器ID
      * @return 带颜色状态选择器的图像
      */
@@ -67,8 +67,7 @@ public class ResourcesUtils {
     }
 
     /**
-     *
-     * @param drawableId 需要添加状态的图像ID
+     * @param drawableId     需要添加状态的图像ID
      * @param colorStateList 需要添加的颜色状态选择器
      * @return 带颜色状态选择器的图像
      */
@@ -81,8 +80,7 @@ public class ResourcesUtils {
     }
 
     /**
-     *
-     * @param drawableId 需要添加状态的图像ID
+     * @param drawableId       需要添加状态的图像ID
      * @param ColorStateListId 需要添加的颜色状态选择器ID
      * @return 带颜色状态选择器的图像
      */
@@ -91,48 +89,61 @@ public class ResourcesUtils {
 
         ColorStateList colorStateList = getColorStateList(context, ColorStateListId);
 
-        return getStateDrawable(context,drawableId, colorStateList);
+        return getStateDrawable(context, drawableId, colorStateList);
 
     }
 
     /**
-     *
      * @param drawableId 图像ID
      * @return Drawable
      */
+    @SuppressWarnings("deprecation")
     public static Drawable getDrawable(Context context, int drawableId) {
-        return context.getResources().getDrawable(drawableId);
+
+
+        Resources resources = context.getResources();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            return resources.getDrawable(drawableId, context.getTheme());
+        } else {
+            return resources.getDrawable(drawableId);
+        }
+
     }
 
     /**
-     *
      * @param colorId 颜色id
-     *
      * @return 颜色状态选择器
      */
+    @SuppressWarnings("deprecation")
     public static ColorStateList getColorStateList(Context context, int colorId) {
-        return context.getResources().getColorStateList(colorId);
+        Resources resources = context.getResources();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            return resources.getColorStateList(colorId, null);
+        }else {
+            return resources.getColorStateList(colorId);
+        }
     }
 
     /**
      * 通过名字获取 drawable的Id,比系统的方法略快一丢丢
+     *
      * @param drawableName 获取drawableId的名字
      * @return R.drawable.drawableName
      */
     public static int getDrawableId(String drawableName) {
 
-            try {
+        try {
 
-                Class res = R.drawable.class;
-                Field field = res.getField(drawableName);
+            Class res = R.drawable.class;
+            Field field = res.getField(drawableName);
 
-                return field.getInt(null);
+            return field.getInt(null);
 //                int drawableId = field.getInt(null);
 //              return drawableId;
-            } catch (Exception e) {
-                Log.e("MyTag", "Failure to get drawable id.", e);
-                return 0;
-            }
+        } catch (Exception e) {
+            Log.e("MyTag", "Failure to get drawable id. 没有找到图片ID!", e);
+            return 0;
+        }
 
 
     }
