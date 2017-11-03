@@ -5,4 +5,7 @@
     <string name="close">关闭侧滑菜单</string>
 
     <string name="open">打开侧滑菜单</string>
+
+
+    <string name="hello_blank_fragment">模块尚未实现</string>
 </resources>

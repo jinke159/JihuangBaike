@@ -30,4 +30,5 @@ dependencies {
 	compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.31'
 	compile 'com.google.code.gson:gson:2.8.2'
 	compile 'com.android.support:support-v4:26.0.0-alpha1'
+	compile 'com.android.support:design:26.0.0-alpha1'
 }

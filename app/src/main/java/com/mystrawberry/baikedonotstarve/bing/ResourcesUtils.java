@@ -141,7 +141,7 @@ public class ResourcesUtils {
 //                int drawableId = field.getInt(null);
 //              return drawableId;
         } catch (Exception e) {
-            Log.e("MyTag", "Failure to get drawable id. 没有找到图片ID!", e);
+            Log.e("MyTag", "Failure to get drawable id. 没有找到图片ID!  图片名称为 : "+drawableName, e);
             return 0;
         }
 

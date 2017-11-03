@@ -1,0 +1,676 @@
+{
+  "biomesList": [
+    {
+      "categoryName": "ROG",
+      "biomesDataList": [
+        {
+          "enName": "Grasslands",
+          "introduce": "ROG版本玩家的出生地，此地区资源比较丰富，也没有什么危险，盛产各种基础资源。",
+          "abundant": [
+            "redbird",
+            "flower_10"
+          ],
+          "occasional": [
+            "flint",
+            "carrot",
+            "berry_bush_1",
+            "evergreen_3",
+            "grass",
+            "sapling",
+            "beehive",
+            "butterfly",
+            "fireflies_1",
+            "pond",
+            "rabbit",
+            "moleworm_2"
+          ],
+          "rare": [
+            "walrus_camp_winter",
+            "spider_den",
+            "red_mushroom"
+          ],
+          "picture": "grassland",
+          "name": "平原"
+        },
+        {
+          "enName": "Savanna",
+          "introduce": "此区域有大量干草，如果草原范围大到一定程度大概率有牛群，因为空旷和牛群的保护以及大量的干草资源是设立基地的优先选择。",
+          "abundant": [
+            "grass",
+            "rabbit",
+            "redbird",
+            "crow"
+          ],
+          "occasional": [
+            "beefalo",
+            "manure",
+            "boulder"
+          ],
+          "rare": [
+            "flower_5",
+            "butterfly",
+            "spider_den",
+            "crank_thing"
+          ],
+          "picture": "savanna",
+          "name": "草原"
+        },
+        {
+          "enName": "Forest",
+          "introduce": "树多，可能会有墓地，有两种树，一种可再生一种不可以，偶尔会碰见一只猪哥pk一群蜘蛛，探图时一般直接跑过去。",
+          "abundant": [
+            "evergreen_3",
+            "a_lumpy_evergreen",
+            "sapling",
+            "redbird",
+            "crow"
+          ],
+          "occasional": [
+            "mushrooms",
+            "spider_den",
+            "pig_house_build",
+            "flower_6",
+            "headstone_4"
+          ],
+          "rare": [
+            "berry_bush_1",
+            "grass",
+            "boulder",
+            "boulder_2",
+            "sinkhole_2",
+            "totally_normal_tree"
+          ],
+          "picture": "forest_icon",
+          "name": "森林"
+        },
+        {
+          "enName": "Marsh",
+          "introduce": "沼泽充满了危险，尤其是触手，在没护甲的情况下被打很伤，这里的生物都是敌对状态经常会大乱斗，但坐收渔翁之利要小心触手怪。",
+          "abundant": [
+            "tentacle_1",
+            "spiky_bush",
+            "spiky_tree",
+            "crow",
+            "green_mushroom",
+            "blue_mushroom",
+            "reeds"
+          ],
+          "occasional": [
+            "spider_den",
+            "pond",
+            "rundown_house_big"
+          ],
+          "rare": [
+            "evergreen_3",
+            "grass"
+          ],
+          "picture": "marsh_icon",
+          "name": "沼泽"
+        },
+        {
+          "enName": "Mosaic",
+          "introduce": "该地形由多种地形混合而成，一般会包裹小块海洋，各种矿物资源比较多，一般情况下一个地图只有一处。",
+          "abundant": [
+            "rocks",
+            "flint",
+            "crow"
+          ],
+          "occasional": [
+            "gold_nugget",
+            "evergreen_3",
+            "boulder",
+            "boulder_2"
+          ],
+          "rare": [
+            "tallbird_nest",
+            "sapling",
+            "berry_bush_1",
+            "grass"
+          ],
+          "picture": "mosaic_icon",
+          "name": "马赛克地形"
+        },
+        {
+          "enName": "Road",
+          "introduce": "道路、小径遍布整个地图，能使在上面行走的生物移动速度增加30%，在铺着卵石小路的一头有概率连着猪村。",
+          "abundant": [],
+          "occasional": [],
+          "rare": [],
+          "picture": "curvy_roads",
+          "name": "道路"
+        },
+        {
+          "enName": "Rockyland",
+          "introduce": "此地含有丰富的矿物资源，冬天时会有冰矿生成，偶尔会看见大量蜘蛛或者高脚鸟，蜘蛛巢清不掉可以一把火...",
+          "abundant": [
+            "flint",
+            "rocks",
+            "crow",
+            "boulder_2",
+            "boulder"
+          ],
+          "occasional": [
+            "gold_nugget",
+            "spider_den",
+            "mini_glacier_1"
+          ],
+          "rare": [
+            "tallbird_1",
+            "tallbird_nest"
+          ],
+          "picture": "rockland_icon",
+          "name": "矿区"
+        },
+        {
+          "enName": "Graveyard",
+          "introduce": "墓地的标志时起雾，墓地上经常散落着许多金块，缺金块时可以来这里挖坟，用给的玩具和猪王换金块。",
+          "abundant": [
+            "headstone_1",
+            "gold_nugget"
+          ],
+          "occasional": [
+            "evergreen_3",
+            "flint",
+            "rocks"
+          ],
+          "rare": [],
+          "picture": "graveyard_map",
+          "name": "墓地"
+        },
+        {
+          "enName": "Chess",
+          "introduce": "此地形一般有发条生物守护，可能会有传送零件或者底座，还有各种大理石雕像和大理石树，此地的花也变成了恶魔花。",
+          "abundant": [
+            "evil_flower_1",
+            "marble_trees",
+            "marble_pillar"
+          ],
+          "occasional": [
+            "clockwork_bishop",
+            "clockwork_knight",
+            "clockwork_rook"
+          ],
+          "rare": [
+            "wooden_thing_1",
+            "maxwell_statue",
+            "harp_statue"
+          ],
+          "picture": "chess",
+          "name": "棋盘地形"
+        },
+        {
+          "enName": "Desert",
+          "introduce": "此地型跟矿区很相似都有大量矿物资源，不过比矿区多了仙人掌山羊等特产，因为有仙人掌而适合作为夏季基地。不过有可能会有大量猎狗窝。",
+          "abundant": [
+            "buzzards",
+            "cactus_flower",
+            "boulder_3",
+            "tumbleweed"
+          ],
+          "occasional": [
+            "hound_mound",
+            "bones",
+            "spiky_bush",
+            "spiky_tree",
+            "grass",
+            "boulder"
+          ],
+          "rare": [
+            "volt_goat"
+          ],
+          "picture": "desert_icon",
+          "name": "荒漠"
+        },
+        {
+          "enName": "Birchnut Forest",
+          "introduce": "这里是物资最丰富的地区，一般会有猪王和猪村在深处生成，盛产浣熊猫、萤火虫、各种蘑菇。也可能会有浆果等资源彩蛋，最重要的是只有这里会出现格鲁姆。",
+          "abundant": [
+            "birchnut_tree",
+            "fireflies_1",
+            "mushrooms"
+          ],
+          "occasional": [
+            "hollow_stump",
+            "sapling",
+            "berry_bush_1",
+            "moleworms",
+            "burrow",
+            "flower_1"
+          ],
+          "rare": [
+            "grass",
+            "glommers_statue",
+            "boulder"
+          ],
+          "picture": "deciduous_icon",
+          "name": "桦树林"
+        }
+      ]
+    },
+    {
+      "categoryName": "洞穴",
+      "biomesDataList": [
+        {
+          "enName": "Mushtree Forest",
+          "introduce": "地下一层的生态环境，盛产各种蘑菇。有时可能一片区域只有一种蘑菇树。",
+          "abundant": [
+            "mushtreered",
+            "mushtree",
+            "mushtreegreen",
+            "llight_flower_all"
+          ],
+          "occasional": [
+            "ferns"
+          ],
+          "rare": [
+            "depths_worm",
+            "slurtle_mound"
+          ],
+          "picture": "mushtree_forest",
+          "name": "蘑菇森林"
+        },
+        {
+          "enName": "Rocky Plains",
+          "introduce": "地下生态环境，全是无硝石矿和一种温和血量超厚的石虾。",
+          "abundant": [
+            "rock_lobster",
+            "boulder_3"
+          ],
+          "occasional": [],
+          "rare": [
+            "nightmare_fissure"
+          ],
+          "picture": "rocky_plains",
+          "name": "岩石平原"
+        },
+        {
+          "enName": "Sunken Forest",
+          "introduce": "地下一层的安全之处没有危险的生物在此生成，也有少量的浆果，和干草。可以在此附近设立地下基地。",
+          "abundant": [
+            "evergreen_3"
+          ],
+          "occasional": [
+            "grass",
+            "sapling",
+            "berry_bush_1",
+            "cave_banana_tree"
+          ],
+          "rare": [],
+          "picture": "sunken_forest",
+          "name": "地下森林"
+        },
+        {
+          "enName": "Flower Swamp",
+          "introduce": "地下沼泽有巨型触手和普通触手，巨型触手不会主动攻击，也有丰富的荧光草在这里生长。",
+          "abundant": [
+            "llight_flower_all",
+            "tentapillar"
+          ],
+          "occasional": [
+            "tentacle_1"
+          ],
+          "rare": [],
+          "picture": "light_flower_swamp",
+          "name": "荧光草沼泽"
+        },
+        {
+          "enName": "Spider InfestedLight",
+          "introduce": "有大量的蜘蛛巢和普通触手以及大量的芦苇。",
+          "abundant": [
+            "spider_den",
+            "tentacle_1",
+            "reeds"
+          ],
+          "occasional": [],
+          "rare": [
+            "spiky_bush"
+          ],
+          "picture": "spider_infested",
+          "name": "地下蜘蛛沼泽"
+        },
+        {
+          "enName": "Stalagmite Biomes",
+          "introduce": "这个区域有大量的洞穴蜘蛛和吐网蜘蛛，危险性很高，而且很有可能在这里找到遗迹入口。",
+          "abundant": [
+            "stalagmite",
+            "spitter"
+          ],
+          "occasional": [],
+          "rare": [
+            "nightmare_fissure"
+          ],
+          "picture": "stalagmite_biomes",
+          "name": "石笋地"
+        },
+        {
+          "enName": "Tall Stalagmite Biome",
+          "introduce": "这里比普通的石笋地危险程度低了不少，只有一些蝙蝠生成。",
+          "abundant": [
+            "stalagmitetall",
+            "丰富资源",
+            "丰富资源"
+          ],
+          "occasional": [
+            "batilisk",
+            "guano"
+          ],
+          "rare": [
+            "nightmare_fissure"
+          ],
+          "picture": "tall_stalagmite_biomes",
+          "name": "高石笋地"
+        }
+      ]
+    },
+    {
+      "categoryName": "SW",
+      "biomesDataList": [
+        {
+          "enName": "Beach",
+          "introduce": "船难DLC玩家出生地，拥有大量基础资源，享受开局时的惬意吧。",
+          "abundant": [
+            "seashell",
+            "flint",
+            "crabbit_den",
+            "sandy_pile",
+            "grass",
+            "sapling",
+            "palm_tree_3"
+          ],
+          "occasional": [
+            "rocks",
+            "boulder",
+            "boulder_3",
+            "limpet_rock",
+            "wildbore_house_1"
+          ],
+          "rare": [
+            "crate_4"
+          ],
+          "picture": "beach_icon",
+          "name": "沙滩"
+        },
+        {
+          "enName": "Ocean",
+          "introduce": "有大量食物，没有海浪，物品可以在此漂浮，见到浅海说明附近有岸",
+          "abundant": [
+            "seaweed"
+          ],
+          "occasional": [
+            "jellyfish",
+            "wobster_den",
+            "mussel_1",
+            "dogfish"
+          ],
+          "rare": [
+            "message_in_a_bottle"
+          ],
+          "picture": "ocean_shallow",
+          "name": "浅海"
+        },
+        {
+          "enName": "Ocean",
+          "introduce": "有海浪以及各种鱼，是地图中覆盖最大的地区，物品可以在此漂浮",
+          "abundant": [
+            "waves"
+          ],
+          "occasional": [
+            "stink_ray",
+            "seagull"
+          ],
+          "rare": [
+            "dogfish",
+            "shoal_1"
+          ],
+          "picture": "ocean_medium",
+          "name": "海"
+        },
+        {
+          "enName": "Ocean",
+          "introduce": "物品在此会沉入海底，在两天内打捞可以找回，智力能找到火山的入口。",
+          "abundant": [
+            "waves"
+          ],
+          "occasional": [
+            "seagull",
+            "bottenosed_ballphin"
+          ],
+          "rare": [
+            "shoal_1",
+            "swordfish",
+            "rawling",
+            "volcano"
+          ],
+          "picture": "ocean_deep",
+          "name": "深海"
+        },
+        {
+          "enName": "Tidal Marsh",
+          "introduce": "这里没有触手怪，但是有毒气、沼泽鱼和鱼人和渔人。也有芦苇等资源。",
+          "abundant": [
+            "reeds",
+            "flup",
+            "tidal_pool",
+            "poisonous_hole"
+          ],
+          "occasional": [
+            "merm",
+            "merm_hut"
+          ],
+          "rare": [
+            "fishermerm",
+            "fishermerms_hut"
+          ],
+          "picture": "tidal_marsh",
+          "name": "潮汐沼泽"
+        },
+        {
+          "enName": "Mangrove",
+          "introduce": "有著被水淹沒的綠色地皮。它被歸於海島一類，但玩家需要使用船或者竹筏才能夠在其中自由行動。 乾草叢和紅樹在這個生態群落生成，並且只能乘船抵達。水牛也通常在這裡。生長在這裡的乾草叢不會在旱季時枯萎。",
+          "abundant": [
+            "mangrove_3",
+            "grass"
+          ],
+          "occasional": [
+            "shoal_1"
+          ],
+          "rare": [
+            "water_beefalo"
+          ],
+          "picture": "mangrove_bio",
+          "name": "红树林"
+        },
+        {
+          "enName": "Meadow",
+          "introduce": "草地（Meadow）是船难DLC中的一个浅绿色地皮的生态群落，上面生长著非常多的干草丛、花朵与红薯。它与草原非常相似，但却缺少了草原拥有的各种资源。 曼德拉草，蜂巢和无燧石的巨砾比较容易在这里生成。",
+          "abundant": [
+            "grass",
+            "flower_5",
+            "butterfly",
+            "sweet_potato"
+          ],
+          "occasional": [
+            "rocks",
+            "flint",
+            "beehive",
+            "mandrake"
+          ],
+          "rare": [
+            "red_mushroom"
+          ],
+          "picture": "meadow",
+          "name": "草地"
+        },
+        {
+          "enName": "Jungle",
+          "introduce": "危险与资源并存，其实也不是很危险，树上有蛇，这里有竹子金矿和浆果香蕉。资源总体来说很丰富。",
+          "abundant": [
+            "jungle_tree_3",
+            "bamboo_patch",
+            "viney_bush",
+            "prime_ape",
+            "flower_10",
+            "fireflies_1",
+            "spider"
+          ],
+          "occasional": [
+            "berry_bush2",
+            "boulder_2",
+            "prime_ape_hut",
+            "spider_den",
+            "mushrooms",
+            "snake",
+            "poison_snake",
+            "butterfly"
+          ],
+          "rare": [
+            "boulder",
+            "rocks",
+            "flint"
+          ],
+          "picture": "jungle",
+          "name": "丛林"
+        },
+        {
+          "enName": "Magma Field",
+          "introduce": "熔岩矿在这里生成，使用铲子挖掘时可能会出现火焰间歇泉。这些还有着数量丰富的巨砾和比较少见的树苗，地面上则能够找到燧石和圆石。高脚鸟也会在这里生成。",
+          "abundant": [
+            "magma_pile",
+            "magma_pile_gold",
+            "krissure"
+          ],
+          "occasional": [
+            "sapling",
+            "boulder_2",
+            "boulder"
+          ],
+          "rare": [
+            "tallbird_1",
+            "tallbird_nest",
+            "flint"
+          ],
+          "picture": "magma_field",
+          "name": "熔岩地"
+        },
+        {
+          "enName": "Coral Reef",
+          "introduce": "珊瑚礁可以用十字镐采摘，这里也可能会生成罕见的智慧树以及海盗章鱼。",
+          "abundant": [
+            "coral_reef",
+            "shoal_1",
+            "dogfish"
+          ],
+          "occasional": [
+            "seaweed",
+            "jellyfish"
+          ],
+          "rare": [
+            "brainy_sprout",
+            "yaarctopus"
+          ],
+          "picture": "coral_reef_bio",
+          "name": "珊瑚礁"
+        }
+      ]
+    },
+    {
+      "categoryName": "遗迹",
+      "biomesDataList": [
+        {
+          "enName": "Labyrinth",
+          "introduce": "迷宫区域十分曲折，通常路的尽头会有豪华箱子，然而几乎不可避免地会遇上白蜘蛛。会有一大片空地并且能在那里找到远古守护者。",
+          "abundant": [
+            "ornate_chest",
+            "dangling_depth_dweller"
+          ],
+          "occasional": [
+            "nightmare_light",
+            "cave_lichen",
+            "llight_flower_all",
+            "thulecite_wall_1"
+          ],
+          "rare": [
+            "ancient_guardian"
+          ],
+          "picture": "labyrinth",
+          "name": "迷宫"
+        },
+        {
+          "enName": "Military",
+          "introduce": "在这里会发现不少影灯和远古雕像，也会找到白蜘蛛和破碎的时钟，两个能找到破碎的远古遗迹的生物群落之一。",
+          "abundant": [
+            "ancient_face",
+            "ancient",
+            "nightmare_light"
+          ],
+          "occasional": [
+            "dangling_depth_dweller",
+            "boulder_3",
+            "broken_clockworks",
+            "thulecite_wall_1"
+          ],
+          "rare": [
+            "ancient_altar"
+          ],
+          "picture": "military",
+          "name": "军事"
+        },
+        {
+          "enName": "Sacred",
+          "introduce": "尽管这里很像军事生物群落，但是通过紫色的草皮可以很容易分辨。在这里会发现不少影灯和远古雕像，破碎的时钟大多聚集在一起，两个能找到破碎的远古遗迹的生物群落之一(只有在这里可能发现完整的远古遗迹)。",
+          "abundant": [
+            "broken_clockworks",
+            "ancient_face",
+            "ancient",
+            "nightmare_light"
+          ],
+          "occasional": [
+            "thulecite_wall_1"
+          ],
+          "rare": [
+            "ancient_altar"
+          ],
+          "picture": "sacred",
+          "name": "神圣"
+        },
+        {
+          "enName": "Village",
+          "introduce": "这里是古代文明的住宅区，可以找到洞穴香蕉树和暴躁猴，偶尔会有少量池塘和荧光草等。",
+          "abundant": [
+            "splumonkey",
+            "splumonkey_pod",
+            "cave_banana_tree",
+            "relic_bowl"
+          ],
+          "occasional": [
+            "pond_cave",
+            "llight_flower_all",
+            "cave_lichen",
+            "thulecite_wall_1"
+          ],
+          "picture": "village",
+          "name": "村庄"
+        },
+        {
+          "enName": "Wilds",
+          "introduce": "古代文明也没有涉足的区域，可以找到洞穴池塘和各种植物，缀食者和深渊蠕虫也会在这里出现。",
+          "abundant": [
+            "cave_lichen"
+          ],
+          "occasional": [
+            "pond_cave",
+            "llight_flower_all",
+            "slurper",
+            "blue_mushroom",
+            "depths_worm"
+          ],
+          "rare": [
+            "splumonkey_pod"
+          ],
+          "picture": "wilds",
+          "name": "野外"
+        }
+      ]
+    }
+  ]
+}

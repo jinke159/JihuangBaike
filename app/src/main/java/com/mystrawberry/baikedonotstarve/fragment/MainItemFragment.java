@@ -25,10 +25,12 @@ public class MainItemFragment extends Fragment {
 
 
     private static final String COLUMN_COUNT = "column-count";
-
+    private static final String INFOS = "infos";
+    private static final String POSITION = "position";
     private int mColumnCount = 3;
     private OnListFragmentInteractionListener mListener;
     private ArrayList<BaseInfo> mBaseInfos;
+
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -39,11 +41,11 @@ public class MainItemFragment extends Fragment {
 
 
     @SuppressWarnings("unused")
-    public static MainItemFragment newInstance(int columnCount, ArrayList<? extends BaseInfo> character) {
+    public static MainItemFragment newInstance(int columnCount,  ArrayList<? extends BaseInfo> baseInfos) {
         MainItemFragment fragment = new MainItemFragment();
         Bundle args = new Bundle();
         args.putInt(COLUMN_COUNT, columnCount);
-        args.putParcelableArrayList("ss",character);
+        args.putParcelableArrayList(INFOS,baseInfos);
         fragment.setArguments(args);
         return fragment;
     }
@@ -54,7 +56,8 @@ public class MainItemFragment extends Fragment {
 
         if (getArguments() != null) {
             mColumnCount = getArguments().getInt(COLUMN_COUNT);
-            mBaseInfos = getArguments().getParcelableArrayList("ss");
+            mBaseInfos = getArguments().getParcelableArrayList(INFOS);
+
         }
     }
 
