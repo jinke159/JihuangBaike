@@ -221,8 +221,8 @@ public class MainActivity extends AppCompatActivity implements OnListFragmentInt
         Intent intent;
         switch (selectedPos) {
             case CHARACTERS_POS:
-                intent = new Intent(this, testActivity.class);
-                startActivitys(item, intent);
+//                intent = new Intent(this, testActivity.class);
+//                startActivitys(item, intent);
                 break;
             case BIOMES_POS:
                 intent = new Intent(this, BiomeDetailsActivity.class);
