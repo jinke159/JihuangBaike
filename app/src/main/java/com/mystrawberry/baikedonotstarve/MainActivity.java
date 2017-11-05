@@ -85,14 +85,20 @@ public class MainActivity extends AppCompatActivity implements OnListFragmentInt
                 //打开菜单时监听回调
                 @Override
                 public void onDrawerClosed(View view) {
+                    if (getSupportActionBar() != null) {
 
+                        getSupportActionBar().setTitle(mStringList.get(mMyAdapter.getSelectedPos()).mString);
+                    }
                     // 声明菜单栏状态被更改,系统会调用onPrepareOptionsMenu(),而且会加载toolbar菜单按钮的动画效果
                     invalidateOptionsMenu();
                 }
 
                 @Override
                 public void onDrawerOpened(View drawerView) {
+                    if (getSupportActionBar() != null) {
 
+                        getSupportActionBar().setTitle(R.string.app_name);
+                    }
                     invalidateOptionsMenu(); // 声明菜单栏状态被更改,系统会调用onPrepareOptionsMenu()
                 }
             };
@@ -191,7 +197,7 @@ public class MainActivity extends AppCompatActivity implements OnListFragmentInt
 
     }
 
-    //    /* 如果我们调用invalidateOptionsMenu() 系统会调用onPrepareOptionsMenu*/
+//        /* 如果我们调用invalidateOptionsMenu() 系统会调用onPrepareOptionsMenu*/
 //    @Override
 //    public boolean onPrepareOptionsMenu(Menu menu) {
 //        // 如果菜单栏已打开，请隐藏与内容视图相关的操作项比如搜索按钮
@@ -250,6 +256,7 @@ public class MainActivity extends AppCompatActivity implements OnListFragmentInt
         mDataBinding.drawerLayout.closeDrawer(GravityCompat.START);
 
         if (!mThread.isAlive()) replaceFragment(position);
+
 
 
     }
