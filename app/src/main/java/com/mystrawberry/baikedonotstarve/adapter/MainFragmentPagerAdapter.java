@@ -14,22 +14,29 @@ import java.util.ArrayList;
  */
 
 public class MainFragmentPagerAdapter extends FragmentPagerAdapter {
-    private static final String TAG = "MainFragmentPagerAdapte";
 
 
-    private ArrayList<Biomes.BiomesListBean> mList;
+    protected ArrayList<Biomes.BiomesListBean> mList;
+    private final int mSelectedPos;
 
-    public MainFragmentPagerAdapter(FragmentManager fm) {
+    public MainFragmentPagerAdapter(FragmentManager fm,int selectedPos) {
         super(fm);
+        mSelectedPos = selectedPos;
+    }
+    public void setList(ArrayList<Biomes.BiomesListBean> list) {
 
+        mList = list;
     }
 
 
     @Override
     public Fragment getItem(int position) {
 
-        return MainItemFragment.newInstance(3, mList.get(position).biomesDataList);
+        return MainItemFragment.newInstance(3, ( mList).get(position).biomesDataLists,mSelectedPos);
     }
+
+
+
 
     @Override
     public int getCount() {
@@ -37,13 +44,12 @@ public class MainFragmentPagerAdapter extends FragmentPagerAdapter {
     }
 
 
-    public void setList(ArrayList<Biomes.BiomesListBean> list) {
-        mList = list;
-    }
+
 
     @Override
     public CharSequence getPageTitle(int position) {
 
         return mList.get(position).categoryName;
     }
+
 }

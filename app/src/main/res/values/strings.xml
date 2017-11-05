@@ -8,4 +8,11 @@
 
 
     <string name="hello_blank_fragment">模块尚未实现</string>
+    <string name="title_activity_details">detailsActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="abundant">富含：</string>
+    <string name="occasional">偶见：</string>
+    <string name="rare">稀有：</string>
 </resources>

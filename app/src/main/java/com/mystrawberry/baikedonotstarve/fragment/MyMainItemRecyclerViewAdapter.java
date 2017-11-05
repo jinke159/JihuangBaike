@@ -6,8 +6,8 @@ import android.view.View;
 import com.mystrawberry.baikedonotstarve.R;
 import com.mystrawberry.baikedonotstarve.adapter.BaseDataBindingAdapter;
 import com.mystrawberry.baikedonotstarve.databinding.FragmentMainitemBinding;
-import com.mystrawberry.baikedonotstarve.fragment.MainItemFragment.OnListFragmentInteractionListener;
 import com.mystrawberry.baikedonotstarve.info.BaseInfo;
+import com.mystrawberry.baikedonotstarve.interfaces.OnListFragmentInteractionListener;
 
 import java.util.ArrayList;
 
@@ -20,11 +20,11 @@ class MyMainItemRecyclerViewAdapter extends BaseDataBindingAdapter<BaseInfo,Frag
 
 
     private final OnListFragmentInteractionListener mListener;
+    private final int mSelectedPos;
 
-
-    MyMainItemRecyclerViewAdapter(ArrayList<BaseInfo> items, OnListFragmentInteractionListener listener) {
+    MyMainItemRecyclerViewAdapter(ArrayList<BaseInfo> items, OnListFragmentInteractionListener listener,int selectedPos) {
         super(R.layout.fragment_mainitem,items);
-
+        mSelectedPos = selectedPos;
         mListener = listener;
     }
 
@@ -38,7 +38,7 @@ class MyMainItemRecyclerViewAdapter extends BaseDataBindingAdapter<BaseInfo,Frag
                 if (null != mListener) {
                     // Notify the active callbacks interface (the activity, if the
                     // fragment is attached to one) that an item has been selected.
-                    mListener.onListFragmentInteraction(item);
+                    mListener.onListFragmentInteraction(item,mSelectedPos );
                 }
             }
         });

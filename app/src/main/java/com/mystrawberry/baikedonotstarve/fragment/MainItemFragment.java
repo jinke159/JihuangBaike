@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 
 import com.mystrawberry.baikedonotstarve.R;
 import com.mystrawberry.baikedonotstarve.info.BaseInfo;
+import com.mystrawberry.baikedonotstarve.interfaces.OnListFragmentInteractionListener;
 
 import java.util.ArrayList;
 
@@ -26,10 +27,11 @@ public class MainItemFragment extends Fragment {
 
     private static final String COLUMN_COUNT = "column-count";
     private static final String INFOS = "infos";
-    private static final String POSITION = "position";
+    private static final String SELECTED_POS = "selectedPos";
     private int mColumnCount = 3;
     private OnListFragmentInteractionListener mListener;
     private ArrayList<BaseInfo> mBaseInfos;
+    private int mSelectedPos;
 
 
     /**
@@ -41,11 +43,12 @@ public class MainItemFragment extends Fragment {
 
 
     @SuppressWarnings("unused")
-    public static MainItemFragment newInstance(int columnCount,  ArrayList<? extends BaseInfo> baseInfos) {
+    public static MainItemFragment newInstance(int columnCount,  ArrayList<? extends BaseInfo> baseInfos,int selectedPos) {
         MainItemFragment fragment = new MainItemFragment();
         Bundle args = new Bundle();
         args.putInt(COLUMN_COUNT, columnCount);
         args.putParcelableArrayList(INFOS,baseInfos);
+        args.putInt(SELECTED_POS,selectedPos);
         fragment.setArguments(args);
         return fragment;
     }
@@ -54,9 +57,11 @@ public class MainItemFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (getArguments() != null) {
-            mColumnCount = getArguments().getInt(COLUMN_COUNT);
-            mBaseInfos = getArguments().getParcelableArrayList(INFOS);
+        Bundle bundle = getArguments();
+        if (bundle != null) {
+            mColumnCount = bundle.getInt(COLUMN_COUNT);
+            mBaseInfos = bundle.getParcelableArrayList(INFOS);
+            mSelectedPos = bundle.getInt(SELECTED_POS);
 
         }
     }
@@ -75,7 +80,7 @@ public class MainItemFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyMainItemRecyclerViewAdapter(mBaseInfos, mListener));
+            recyclerView.setAdapter(new MyMainItemRecyclerViewAdapter(mBaseInfos, mListener,mSelectedPos));
         }
         return view;
     }
@@ -98,18 +103,5 @@ public class MainItemFragment extends Fragment {
         mListener = null;
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p/>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnListFragmentInteractionListener {
 
-        void onListFragmentInteraction(BaseInfo item);
-    }
 }

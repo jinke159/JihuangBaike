@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="drawableId"
+            type="int"/>
+    </data>
+
+    <ImageView
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:background="@drawable/item_image_view_selector"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@{drawableId}">
+
+    </ImageView>
+</layout>

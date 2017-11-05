@@ -12,7 +12,7 @@ import com.mystrawberry.baikedonotstarve.info.TextAndDrawable;
 
 public class MyAdapter extends BaseDataBindingAdapter<TextAndDrawable,RvMainItemBinding> {
 
-    @SuppressWarnings("WeakerAccess")
+
     public void setSelectedPos(int selectedPos) {
         this.selectedPos = selectedPos;
     }

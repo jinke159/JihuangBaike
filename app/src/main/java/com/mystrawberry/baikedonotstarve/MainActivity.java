@@ -19,8 +19,8 @@ import android.view.View;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.google.gson.Gson;
-import com.mystrawberry.baikedonotstarve.adapter.MainFragmentPagerAdapter;
 import com.mystrawberry.baikedonotstarve.adapter.MyAdapter;
+import com.mystrawberry.baikedonotstarve.context.BiomeDetailsActivity;
 import com.mystrawberry.baikedonotstarve.databinding.ActivityMainBinding;
 import com.mystrawberry.baikedonotstarve.fragment.BiomesViewPagerFragment;
 import com.mystrawberry.baikedonotstarve.fragment.MainItemFragment;
@@ -33,6 +33,7 @@ import com.mystrawberry.baikedonotstarve.info.Foods;
 import com.mystrawberry.baikedonotstarve.info.Goods;
 import com.mystrawberry.baikedonotstarve.info.Mobs;
 import com.mystrawberry.baikedonotstarve.info.TextAndDrawable;
+import com.mystrawberry.baikedonotstarve.interfaces.OnListFragmentInteractionListener;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -40,15 +41,16 @@ import java.util.List;
 
 import static com.mystrawberry.baikedonotstarve.bing.IOUtils.inputStream2String;
 
-public class MainActivity extends AppCompatActivity implements MainItemFragment.OnListFragmentInteractionListener, BaseQuickAdapter.OnItemClickListener, BiomesViewPagerFragment.OnFragmentInteractionListener {
+public class MainActivity extends AppCompatActivity implements OnListFragmentInteractionListener, BaseQuickAdapter.OnItemClickListener {
 
     private static final String TAG = "MainActivity";
     public static final String SAVE_SELECTED_POS_KEY = "侧滑菜单选中位置";
+    public static final String ITEM_KEY = "选中条目的详情";
     public ActivityMainBinding mDataBinding;
     private ActionBarDrawerToggle mActionBarDrawerToggle;
     private MyAdapter mMyAdapter;
     private List<TextAndDrawable> mStringList;
-    private SparseArray <Fragment> mFragmentArray;
+    private SparseArray<Fragment> mFragmentArray;
     //角色数据对象
     private ArrayList<Characters.CharacterBean> mArrayCharacters;
     private static final int CHARACTERS_POS = 0;
@@ -74,12 +76,12 @@ public class MainActivity extends AppCompatActivity implements MainItemFragment.
         super.onCreate(savedInstanceState);
         mDataBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
-        setSupportActionBar(mDataBinding.toolbar);
+        setSupportActionBar(mDataBinding.included.toolbar);
         mFragmentArray = new SparseArray<>(6);
 
         if (mActionBarDrawerToggle == null)
             mActionBarDrawerToggle = new ActionBarDrawerToggle(this, mDataBinding.drawerLayout,
-                    mDataBinding.toolbar, R.string.open, R.string.close) {
+                    mDataBinding.included.toolbar, R.string.open, R.string.close) {
                 //打开菜单时监听回调
                 @Override
                 public void onDrawerClosed(View view) {
@@ -121,9 +123,6 @@ public class MainActivity extends AppCompatActivity implements MainItemFragment.
             getDrawerLayoutData();
 
 
-
-
-
     }
 
     private void initData() {
@@ -136,7 +135,7 @@ public class MainActivity extends AppCompatActivity implements MainItemFragment.
                 InputStream biomeJson = resources.openRawResource(R.raw.biome);
 
                 String biomejson = inputStream2String(biomeJson);
-                if (!TextUtils.isEmpty(json)&& !TextUtils.isEmpty(biomejson)) {
+                if (!TextUtils.isEmpty(json) && !TextUtils.isEmpty(biomejson)) {
                     Gson gson = new Gson();
 
                     mArrayCharacters = gson.fromJson(json, Characters.class).mCharacter;
@@ -149,9 +148,6 @@ public class MainActivity extends AppCompatActivity implements MainItemFragment.
         });
         mThread.start();
     }
-
-
-
 
 
     private void getDrawerLayoutData() {
@@ -215,16 +211,26 @@ public class MainActivity extends AppCompatActivity implements MainItemFragment.
 
 
     @Override
-    public void onListFragmentInteraction(BaseInfo item) {
-        switch (mMyAdapter.getSelectedPos()) {
+    public void onListFragmentInteraction(BaseInfo item, int selectedPos) {
+        Intent intent;
+        switch (selectedPos) {
             case CHARACTERS_POS:
-                Intent intent = new Intent(this, testActivity.class);
-                intent.putExtra("123", item);
-                startActivity(intent);
+                intent = new Intent(this, testActivity.class);
+                startActivitys(item, intent);
+                break;
+            case BIOMES_POS:
+                intent = new Intent(this, BiomeDetailsActivity.class);
+                startActivitys(item, intent);
+
                 break;
 
         }
 
+    }
+
+    private void startActivitys(BaseInfo item, Intent intent) {
+        intent.putExtra(ITEM_KEY, item);
+        startActivity(intent);
     }
 
     /**
@@ -232,18 +238,18 @@ public class MainActivity extends AppCompatActivity implements MainItemFragment.
      */
     @Override
     public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-        MyAdapter myAdapter = (MyAdapter) adapter;
 
-        if (position == myAdapter.getSelectedPos()){
+
+        if (position == mMyAdapter.getSelectedPos()) {
             mDataBinding.drawerLayout.closeDrawer(GravityCompat.START);
             return;
         }
-        myAdapter.setSelectedPos(position);
-        //不能用notifyItemChanged   改成普通图片可以
-        myAdapter.notifyDataSetChanged();
+        mMyAdapter.setSelectedPos(position);
+        //xml图不能用notifyItemChanged   改成普通图片可以
+        mMyAdapter.notifyDataSetChanged();
         mDataBinding.drawerLayout.closeDrawer(GravityCompat.START);
 
-        if(!mThread.isAlive()) replaceFragment(position);
+        if (!mThread.isAlive()) replaceFragment(position);
 
 
     }
@@ -254,16 +260,16 @@ public class MainActivity extends AppCompatActivity implements MainItemFragment.
         switch (pos) {
             case CHARACTERS_POS:
                 if (fragment == null) {
-                    fragment = MainItemFragment.newInstance(3, mArrayCharacters);
-                    mFragmentArray.put(CHARACTERS_POS,fragment);
+                    fragment = MainItemFragment.newInstance(3, mArrayCharacters, CHARACTERS_POS);
+                    mFragmentArray.put(CHARACTERS_POS, fragment);
                 }
 
                 fragmentTransaction.replace(R.id.main_frame, fragment).commit();
                 break;
             case BIOMES_POS:
                 if (fragment == null) {
-                    fragment = BiomesViewPagerFragment.newInstance();
-                    mFragmentArray.put(pos,fragment);
+                    fragment = BiomesViewPagerFragment.newInstance(mBiomesList, BIOMES_POS);
+                    mFragmentArray.put(pos, fragment);
                 }
 
                 fragmentTransaction.replace(R.id.main_frame, fragment).commit();
@@ -275,7 +281,7 @@ public class MainActivity extends AppCompatActivity implements MainItemFragment.
             case FOODS_POS:
                 if (fragment == null) {
                     fragment = NullFragment.newInstance("" + pos, "");
-                    mFragmentArray.put(pos,fragment);
+                    mFragmentArray.put(pos, fragment);
                 }
                 fragmentTransaction.replace(R.id.main_frame, fragment).commit();
                 break;
@@ -285,8 +291,5 @@ public class MainActivity extends AppCompatActivity implements MainItemFragment.
 
     }
 
-    @Override
-    public void onFragmentInteraction(MainFragmentPagerAdapter adapter) {
-        adapter.setList(mBiomesList);
-    }
+
 }
