@@ -3,6 +3,7 @@ package com.mystrawberry.baikedonotstarve.context;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 
@@ -21,8 +22,10 @@ public class BiomeDetailsActivity extends AppCompatActivity {
         ActivityBiomeDetailsBinding dataBinding = DataBindingUtil.setContentView(this, R.layout.activity_biome_details);
 
         setSupportActionBar(dataBinding.included.toolbar);
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setTitle("生态环境");
         }
         Intent intent = getIntent();
 
